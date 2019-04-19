@@ -29,7 +29,7 @@ namespace SqlSample.DAL
 
             try
             {
-                SqlCommand cmd = new SqlCommand("select * from Categories", conn);
+                SqlCommand cmd = new SqlCommand("select * from Categories order by CategoryID asc", conn);
 
                 conn.Open();
 
@@ -42,6 +42,7 @@ namespace SqlSample.DAL
                     {
                         shipperlist.Add(new CategoryDAO()
                         {
+                            ID = rdr["CategoryID"],
                             CategoryName = rdr["CategoryName"].ToString(),
                             Description = rdr["Description"].ToString(),
                             Picture = (byte[])rdr["Picture"]
@@ -63,12 +64,106 @@ namespace SqlSample.DAL
                 }
             }
 
-            return null;
+            return shipperlist;
         }
 
         public CategoryDAO SelectByID(object ID)
         {
-            throw new NotImplementedException();
+            CategoryDAO categoryObject = null;
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "server=.;Database=NORTHWND;uid=sa;pwd=123";
+
+            try
+            {
+                string strCommand = string.Format("SELECT * FROM[NORTHWND].[dbo].[Categories] where CategoryID = {0}",
+                    ID);
+
+                SqlCommand cmd = new SqlCommand(strCommand, conn);
+
+                conn.Open();
+
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                if (rdr.HasRows)
+                {
+                    categoryObject = new CategoryDAO();
+                    while (rdr.Read())
+                    {
+                        categoryObject = new CategoryDAO()
+                        {
+                            ID = rdr["CategoryID"],
+                            CategoryName = rdr["CategoryName"].ToString(),
+                            Description = rdr["Description"].ToString(),
+                            Picture = (byte[])rdr["Picture"]
+                        };
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return categoryObject;
+        }
+
+        public CategoryDAO SelectByName(string ID)
+        {
+            CategoryDAO categoryObject = null;
+
+            SqlConnection conn = new SqlConnection();
+            conn.ConnectionString = "server=.;Database=NORTHWND;uid=sa;pwd=123";
+
+            try
+            {
+                string strCommand = string.Format("SELECT * FROM[NORTHWND].[dbo].[Categories] where CategoryName = '{0}'",
+                    ID);
+
+                SqlCommand cmd = new SqlCommand(strCommand, conn);
+
+                conn.Open();
+               
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                if (rdr.HasRows)
+                {
+                    categoryObject = new CategoryDAO();
+                    while (rdr.Read())
+                    {
+                        categoryObject = new CategoryDAO()
+                        {
+                            CategoryName = rdr["CategoryName"].ToString(),
+                            Description = rdr["Description"].ToString(),
+                            Picture = (byte[])rdr["Picture"]
+                        };
+                    }
+                }
+
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                if (conn.State == System.Data.ConnectionState.Open)
+                {
+                    conn.Close();
+                }
+            }
+
+            return categoryObject;
         }
 
         public int Update(CategoryDAO updated)

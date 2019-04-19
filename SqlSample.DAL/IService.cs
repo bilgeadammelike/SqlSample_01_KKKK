@@ -12,6 +12,8 @@ namespace SqlSample.DAL
 
         T SelectByID(object ID);
 
+        T SelectByName(string ID);
+
         int Insert(T inserted);
 
         int Update(T updated);

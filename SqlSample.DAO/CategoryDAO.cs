@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SqlSample.DAO
 {
-    public class CategoryDAO
+    public class CategoryDAO : BaseEntity
     {        
         public string CategoryName { get; set; }
 
