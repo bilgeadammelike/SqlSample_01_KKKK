@@ -70,8 +70,8 @@ namespace SqlSample.WinUI
 
             fs.Flush();
             fs.Close();
-
-
         }
     }
 }
+
+
