@@ -71,6 +71,12 @@ namespace SqlSample.WinUI
             fs.Flush();
             fs.Close();
         }
+
+        
+        private void btnSepeteEkle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

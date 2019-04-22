@@ -44,6 +44,7 @@
     <Compile Include="CategoryDAO.cs" />
     <Compile Include="Products.DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SepetItem.cs" />
     <Compile Include="ShipperDAO.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

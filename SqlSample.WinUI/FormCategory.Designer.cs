@@ -34,13 +34,14 @@
             this.cmboxCategories = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lstboxProducts = new System.Windows.Forms.ListBox();
+            this.btnSepeteEkle = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureboxPicture)).BeginInit();
             this.SuspendLayout();
             // 
             // lstboxData
             // 
             this.lstboxData.FormattingEnabled = true;
-            this.lstboxData.Location = new System.Drawing.Point(397, 124);
+            this.lstboxData.Location = new System.Drawing.Point(397, 246);
             this.lstboxData.Name = "lstboxData";
             this.lstboxData.Size = new System.Drawing.Size(122, 82);
             this.lstboxData.TabIndex = 0;
@@ -58,7 +59,7 @@
             // 
             // pictureboxPicture
             // 
-            this.pictureboxPicture.Location = new System.Drawing.Point(357, 10);
+            this.pictureboxPicture.Location = new System.Drawing.Point(12, 36);
             this.pictureboxPicture.Name = "pictureboxPicture";
             this.pictureboxPicture.Size = new System.Drawing.Size(162, 108);
             this.pictureboxPicture.TabIndex = 2;
@@ -85,16 +86,27 @@
             // lstboxProducts
             // 
             this.lstboxProducts.FormattingEnabled = true;
-            this.lstboxProducts.Location = new System.Drawing.Point(12, 56);
+            this.lstboxProducts.Location = new System.Drawing.Point(12, 181);
             this.lstboxProducts.Name = "lstboxProducts";
             this.lstboxProducts.Size = new System.Drawing.Size(339, 147);
             this.lstboxProducts.TabIndex = 5;
+            // 
+            // btnSepeteEkle
+            // 
+            this.btnSepeteEkle.Location = new System.Drawing.Point(444, 121);
+            this.btnSepeteEkle.Name = "btnSepeteEkle";
+            this.btnSepeteEkle.Size = new System.Drawing.Size(75, 23);
+            this.btnSepeteEkle.TabIndex = 7;
+            this.btnSepeteEkle.Text = "Sepete Ekle";
+            this.btnSepeteEkle.UseVisualStyleBackColor = true;
+            this.btnSepeteEkle.Click += new System.EventHandler(this.btnSepeteEkle_Click);
             // 
             // FormCategory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(531, 340);
+            this.Controls.Add(this.btnSepeteEkle);
             this.Controls.Add(this.lstboxProducts);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cmboxCategories);
@@ -117,5 +129,6 @@
         private System.Windows.Forms.ComboBox cmboxCategories;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lstboxProducts;
+        private System.Windows.Forms.Button btnSepeteEkle;
     }
 }
